@@ -12,7 +12,7 @@ Our focus is on creating a functional system that incorporates:
 - Sales data
 - Customer data
 - Supplier information
-- Order status updates
+- Purchase order status updates
 
 ## Purpose
 The primary purpose of this project is to apply the concepts learned in class to develop a real-world solution while collaborating as a team. 
