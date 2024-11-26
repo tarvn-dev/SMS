@@ -17,7 +17,7 @@ Phone Integer,
 Address VarChar
 );
 
--- Creating table Categoru_ID
+-- Creating table Category_ID
 CREATE table Category_ID(
 Category_ID Integer PRIMARY KEY,
 Name VarChar,
