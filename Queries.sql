@@ -1,3 +1,33 @@
+create table customer(
+customer_id integer primary key
+first_name varchar
+last_name varchar
+email varchar
+phone varchar
+address varchar
+);
+
+create table order_header(
+order_id integer primary key
+customer_id integer foreign key
+foreign key (customer_id) references customer(customer_id)
+order_date date
+status varchar
+total_amount integer
+employee_id integer foreign key
+foreign key (employee_id) references employee (employee_id)
+);
+
+create table employee(
+employee_id integer primary key
+first_name varchar
+last_name varchar
+email varchar
+phone varchar
+role varchar
+);
+
+
 -- Creating table Product_Supplier
 CREATE table Product_Supplier(
 Product_Supplier_ID Integer PRIMARY KEY,
