@@ -117,7 +117,7 @@ VALUES
 (2, 'Dairy', 'Milk, cheese, butter, yogurt, and other dairy products'),
 (3, 'Beverages', 'Soft drinks, juices, coffee, tea, and alcoholic beverages'),
 (4, 'Frozen Foods', 'Frozen vegetables, frozen meals, ice cream, and frozen snacks'),
-(5, 'Bakery', 'Bread, pastries, cakes, and other baked goods'),
+(5, 'Bakery', 'Bread, pastries, cakes, and other baked goods');
 
 
 
