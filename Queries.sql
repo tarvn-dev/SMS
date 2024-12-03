@@ -24,7 +24,7 @@ Supplier_ID Integer PRIMARY KEY,
 Name VarChar,
 Contact_Name VarChar,
 Contact_Email VarChar,
-Phone Integer,
+Phone VarChar,
 Address VarChar
 );
 
