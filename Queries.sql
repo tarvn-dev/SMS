@@ -1,44 +1,21 @@
 --Creating table Customer
 Create table Customer(
-Customer_ID Integer PRIMARY KEY
-First_Name Varchar
-Last_Name Varchar
-Email Varchar
-Phone Varchar
-Address Varchar
-);
-
---Creating table Order_Header
-Create table Order_Header(
-Order_ID Integer PRIMARY KEY
-Customer_ID Integer FOREIGN KEY
-foreign key (Customer_ID) references Customer(Customer_ID)
-Order_Date Date
-Status Varchar
-Total_Amount Integer
-Employee_ID Integer FOREIGN KEY
-foreign key (Employee_ID) references Employee (Employee_ID)
+Customer_ID Integer Primary KEY,
+First_Name VarChar,
+Last_Name VarChar,
+Email VarChar,
+Phone VarChar,
+Address VarChar
 );
 
 --Creating table Employee
 Create table Employee(
-Employee_ID Integer PRIMARY KEY
-First_Name Varchar
-Last_Name Varchar
-Email Varchar
-Phone Varchar
-Role Varchar
-);
-
-
-
--- Creating table Product_Supplier
-CREATE table Product_Supplier(
-Product_Supplier_ID Integer PRIMARY KEY,
-Product_ID Integer,
-Supplier_ID Integer,
-foreign key (Product_ID) references Product(Product_ID),
-foreign key (Supplier_ID) references Supplier(Supplier_ID)
+Employee_ID Integer Primary KEY,
+First_Name VarChar,
+Last_Name VarChar,
+Email VarChar,
+Phone VarChar,
+Role VarChar
 );
 
 -- Creating table Supplier
@@ -56,6 +33,27 @@ CREATE table Category(
 Category_ID Integer PRIMARY KEY,
 Name VarChar,
 Description VarChar
+);
+
+--Creating table Order_Header
+Create table Order_Header(
+Order_ID Integer Primary KEY,
+Customer_ID Integer, 
+Order_Date Date,
+Status VarChar,
+Total_Amount Integer,
+Employee_ID Integer,
+foreign key (Customer_ID) references Customer(Customer_ID),
+foreign key (Employee_ID) references Employee(Employee_ID)
+);
+
+-- Creating table Product_Supplier
+CREATE table Product_Supplier(
+Product_Supplier_ID Integer PRIMARY KEY,
+Product_ID Integer,
+Supplier_ID Integer,
+foreign key (Product_ID) references Product(Product_ID),
+foreign key (Supplier_ID) references Supplier(Supplier_ID)
 );
 
 -- Creating table Order_Details
