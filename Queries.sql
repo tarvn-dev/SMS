@@ -87,7 +87,7 @@ foreign key (Order_Details_ID) references Order_Details(Order_Details_ID),
 foreign key (Product_ID) references Product(Product_ID)
 );
 
-INSERT INTO customer (customer_id, first_name, last_name, email, phone, address)
+INSERT INTO Customer (Customer_ID, First_Name, Last_Name, Email, Phone, Address)
 VALUES
 (1, 'John', 'Doe', 'john.doe@example.com', '123-456-7890', '123 Elm St, Springfield, IL, 62701'),
 (2, 'Jane', 'Smith', 'jane.smith@example.com', '234-567-8901', '456 Oak St, Springfield, IL, 62702'),
