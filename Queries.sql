@@ -131,11 +131,11 @@ VALUES
 
 INSERT INTO Product_Supplier (Product_Supplier_ID, Product_ID, Supplier_ID)
 VALUES
-(1, 101, 1),
-(2, 102, 2),
-(3, 103, 3),
-(4, 104, 4),
-(5, 105, 5);
+(1, 1, 1),
+(2, 2, 2),
+(3, 3, 3),
+(4, 4, 4),
+(5, 5, 5);
 
 INSERT INTO Order_Details (Order_Details_ID, Order_ID, Quantity, Unit_Price, Total_Price)
 VALUES
