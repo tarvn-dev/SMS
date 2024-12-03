@@ -151,7 +151,7 @@ VALUES
 (2, 'Banana', 1, 'Fresh yellow bananas', 80, 1, 25),   
 (3, 'Whole Milk', 3, 'Full-fat dairy milk', 100, 2, 30), 
 (4, 'Cheddar Cheese', 5, 'Sharp cheddar cheese', 40, 2, 15), 
-(5, 'Coca-Cola', 1, 'Soft drink, 12 oz can', 150, 3, 50),
+(5, 'Coca-Cola', 1, 'Soft drink, 12 oz can', 150, 3, 50);
 
 INSERT INTO Order_Product (Order_Product_ID, Order_Details_ID, Product_ID)
 VALUES
@@ -159,5 +159,5 @@ VALUES
 (2, 1, 3),  
 (3, 2, 5), 
 (4, 3, 7),  
-(5, 4, 9),
+(5, 4, 9);
 
