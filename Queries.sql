@@ -161,3 +161,94 @@ VALUES
 (4, 3, 2),  
 (5, 4, 4);
 
+
+-- 1. List all completed orders with customer details:
+
+Select Order_ID, First_Name, Last_Name, Total_Amount
+From Order_Header
+INNER JOIN Customer ON (Customer.Customer_ID = Order_Header.Customer_ID)
+WHERE Status = 'Completed';
+
+-- 2. Get all products below their reorder point
+
+SELECT Product_ID, Name, Stock_Quantity, Reorder_Point
+FROM Product
+WHERE Stock_Quantity < Reorder_Point;
+
+-- 3. Retrieve orders handled by a specific employee
+
+SELECT Order_ID, First_Name, Last_Name, Status
+FROM Order_Header
+INNER JOIN Employee ON Employee.Employee_ID = Order_Header.Employee_ID
+WHERE Employee.Employee_ID = 101;
+
+-- 4. List suppliers providing products for a specific category
+
+SELECT Supplier.Name AS Supplier_Name, Product.Name AS Product_Name, Category.Name AS Category
+FROM Supplier
+INNER JOIN Product_Supplier ON Supplier.Supplier_ID = Product_Supplier.Supplier_ID
+INNER JOIN Product ON Product_Supplier.Product_ID = Product.Product_ID
+INNER JOIN Category ON Product.Category_ID = Category.Category_ID
+WHERE Category.Name = 'Dairy';
+
+-- 5. Total sales amount grouped by each employee
+
+SELECT Employee.Employee_ID, Employee.First_Name, Employee.Last_Name, SUM(Order_Header.Total_Amount) AS Total_Sales
+FROM Order_Header
+INNER JOIN Employee ON Employee.Employee_ID = Order_Header.Employee_ID
+GROUP BY Employee.Employee_ID, Employee.First_Name, Employee.Last_Name;
+
+-- 6. List all customers who have placed more than one order
+
+SELECT Customer.First_Name, Customer.Last_Name, COUNT(Order_Header.Order_ID) AS Order_Count
+FROM Customer
+INNER JOIN Order_Header ON Customer.Customer_ID = Order_Header.Customer_ID
+GROUP BY Customer.Customer_ID, Customer.First_Name, Customer.Last_Name
+HAVING COUNT(Order_Header.Order_ID) > 1;
+
+-- 7. List all products ordered along with their total quantity ordered
+
+SELECT Product.Name, SUM(Order_Details.Quantity) AS Total_Quantity
+FROM Product
+INNER JOIN Order_Product ON Product.Product_ID = Order_Product.Product_ID
+INNER JOIN Order_Details ON Order_Product.Order_Details_ID = Order_Details.Order_Details_ID
+GROUP BY Product.Product_ID, Product.Name;
+
+-- 8. Retrieve orders placed within the last 7 days
+
+SELECT Order_ID, Order_Date, Status, Total_Amount
+FROM Order_Header
+WHERE Order_Date >= date('now', '-7 days');
+
+-- 9. List all products in a specific order
+
+SELECT Product.Name AS Product_Name, Order_Details.Quantity, Order_Details.Unit_Price, Order_Details.Total_Price
+FROM Product
+INNER JOIN Order_Product ON Product.Product_ID = Order_Product.Product_ID
+INNER JOIN Order_Details ON Order_Product.Order_Details_ID = Order_Details.Order_Details_ID
+WHERE Order_Details.Order_ID = 1;
+
+-- 10. List employees who have processed no orders
+
+SELECT Employee.First_Name, Employee.Last_Name, Employee.Role
+FROM Employee
+LEFT JOIN Order_Header ON Employee.Employee_ID = Order_Header.Employee_ID
+WHERE Order_Header.Order_ID IS NULL;
+
+-- 11. List products that have never been ordered
+
+SELECT Product.Product_ID, Product.Name
+FROM Product
+LEFT JOIN Order_Product ON Product.Product_ID = Order_Product.Product_ID
+WHERE Order_Product.Product_ID IS NULL;
+
+-- 12. Retrieve the total revenue generated for each category
+
+SELECT Category.Name AS Category, SUM(Order_Details.Total_Price) AS Total_Revenue
+FROM Category
+INNER JOIN Product ON Category.Category_ID = Product.Category_ID
+INNER JOIN Order_Product ON Product.Product_ID = Order_Product.Product_ID
+INNER JOIN Order_Details ON Order_Product.Order_Details_ID = Order_Details.Order_Details_ID
+GROUP BY Category.Category_ID, Category.Name;
+
+
