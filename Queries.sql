@@ -97,3 +97,18 @@ VALUES
 (4, 'Emily', 'Davis', 'emily.davis@example.com', '456-789-0123', '101 Maple St, Springfield, IL, 62704'),
 (5, 'David', 'Martinez', 'david.martinez@example.com', '567-890-1234', '202 Birch St, Springfield, IL, 62705');
 
+INSERT INTO Order_Header (Order_ID, Customer_ID, Order_Date, Status, Total_Amount, Employee_ID)
+VALUES
+(1, 1, '2024-12-01', 'Completed', 150, 101),
+(2, 2, '2024-12-02', 'Pending', 200, 102),
+(3, 3, '2024-12-03', 'Shipped', 250, 103),
+(4, 4, '2024-12-04', 'Completed', 300, 104),
+(5, 5, '2024-12-05', 'Cancelled', 100, 105);
+
+INSERT INTO Employee (Employee_ID, First_Name, Last_Name, Email, Phone, Role)
+VALUES
+(101, 'John', 'Smith', 'john.smith@example.com', '555-123-4567', 'Sales Manager'),
+(102, 'Mary', 'Johnson', 'mary.johnson@example.com', '555-234-5678', 'Customer Support'),
+(103, 'James', 'Williams', 'james.williams@example.com', '555-345-6789', 'Warehouse Staff'),
+(104, 'Patricia', 'Brown', 'patricia.brown@example.com', '555-456-7890', 'Store Manager'),
+(105, 'Michael', 'Davis', 'michael.davis@example.com', '555-567-8901', 'Cashier');
