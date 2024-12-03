@@ -47,11 +47,42 @@ Phone Integer,
 Address VarChar
 );
 
--- Creating table Category_ID
-CREATE table Category_ID(
+-- Creating table Category
+CREATE table Category(
 Category_ID Integer PRIMARY KEY,
 Name VarChar,
 Description VarChar
+);
+
+-- Creating table Order_Details
+CREATE table Order_Details(
+Order_Details_ID Integer Primary KEY,
+Order_ID Integer,
+Quantity Integer,
+Unit_Price Integer,
+Total_Price Integer,
+foreign key (Order_ID) references Order_Header(Order_ID)
+);
+
+-- Creating table Product
+CREATE table Product(
+Product_ID Integer Primary KEY,
+Name VarChar,
+Price Integer,
+Description VarChar,
+Stock_Quantity Integer,
+Category_ID Integer,
+Reorder_Point Integer,
+foreign key (Category_ID) references Category(Category_ID)
+);
+
+-- Creating table Order_Product
+CREATE table Order_Product(
+Order_Product_ID Integer Primary KEY,
+Order_Details_ID Integer,
+Product_ID Integer,
+foreign key (Order_Details_ID) references Order_Details(Order_Details_ID),
+foreign key (Product_ID) references Product(Product_ID)
 );
 
 INSERT INTO customer (customer_id, first_name, last_name, email, phone, address)
